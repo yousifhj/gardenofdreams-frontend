@@ -15,7 +15,7 @@ class AccountsContainer extends React.Component {
         return (
             <div> 
                 <AccountInput/>
-                <Accounts accounts={this.props.accounts} />
+                <Accounts accounts={this.props.accounts}/>
             </div>
         ) 
     }
