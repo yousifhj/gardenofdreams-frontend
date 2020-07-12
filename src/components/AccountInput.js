@@ -4,10 +4,7 @@ import {addAccount} from '../actions/addAccount'
 
 class AccountInput extends React.Component {
 
-    state = {
-        name: '',
-        balance: ''
-    }
+    state = { name: '', balance: ''}
 
     handleChange = (event) => {
         this.setState({
@@ -18,11 +15,7 @@ class AccountInput extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.addAccount(this.state)
-        this.setState({
-          name: '',
-          balance: ''
-        })
-    }
+        this.setState({ name: '', balance: '' }) }
 
     render() {
         return (
