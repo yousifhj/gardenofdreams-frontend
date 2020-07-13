@@ -7,7 +7,7 @@ class PlantsContainer extends React.Component {
     render() {
         return (
             <div>
-                <PlantInput/>
+                <PlantInput account={this.props.account}/>
                 <Plants plants={this.props.account && this.props.account.plants}/>
             </div>
         )
