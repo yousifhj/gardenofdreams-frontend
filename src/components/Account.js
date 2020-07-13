@@ -1,6 +1,8 @@
 import React from 'react'
 import {Redirect} from 'react-router-dom'
 
+import PlantsContainer from '../containers/PlantsContainer'
+
 const Account = (props) => {
 
     console.log(props)
@@ -9,10 +11,13 @@ const Account = (props) => {
     console.log(account)
 
     return (
-        <li>
-            {/* {account? null : <Redirect to='/accounts'/>} */}
-            {account ? account.name : null} - {account ? account.balance : null}
-        </li>
+        <div>
+            <h3>
+                {/* {account? null : <Redirect to='/accounts'/>} */}
+                {account ? account.name : null} - {account ? account.balance : null}
+            </h3>
+           <PlantsContainer account={account}/>
+        </div>
     )
 
 }
