@@ -5,7 +5,7 @@ import {addPlant} from '../actions/addPlant'
 class PlantInput extends React.Component {
 
     state = { 
-        kinda: 'gifted',
+        kind: 'gifted',
         name: '',
         price: '',
         description: '',
@@ -22,18 +22,19 @@ class PlantInput extends React.Component {
         event.preventDefault()
         this.props.addPlant(this.state, this.props.account.id)
         this.setState({
-            kinda: 'gifted',
+            kind: 'gifted',
             name: '',
             price: '',
             description: '',
         })
     }
+
     render() {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <label> Plant Type:</label>
-                    <select name="kinda" value={this.state.kind} onChange={this.handleChange}>
+                    <select name="kind" value={this.state.kind} onChange={this.handleChange}>
                         <option>gift</option>
                         <option>gifted</option>
                     </select>

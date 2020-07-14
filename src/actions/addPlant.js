@@ -9,6 +9,12 @@ export const addPlant = (plant, accountId) => {
         body: JSON.stringify(plant)
       })
       .then(response => response.json())
-      .then(account => dispatch({type: 'ADD_PLANT', payload: account}))
+      .then(account => {
+          console.log(account)
+           dispatch({type: 'ADD_PLANT', payload: account})
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 }
