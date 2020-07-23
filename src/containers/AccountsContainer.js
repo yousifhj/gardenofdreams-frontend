@@ -27,7 +27,7 @@ class AccountsContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-      accounts: state.accounts
+      accounts: state.account.accounts
     }
   }
 

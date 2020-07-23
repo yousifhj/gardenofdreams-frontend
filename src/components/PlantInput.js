@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addPlant} from '../actions/addPlant'
-
+import {Form, Button} from 'react-bootstrap'
 class PlantInput extends React.Component {
 
     state = { 
@@ -12,9 +12,9 @@ class PlantInput extends React.Component {
     
     }
 
-    handleChange = (event) => {
+    handleChange = property => (event) => {
         this.setState({
-            [event.target.name]: event.target.value
+            [property]: event.target.value
         })
     }
 
@@ -30,22 +30,34 @@ class PlantInput extends React.Component {
     }
 
     render() {
+        const { name, kind, description, price } = this.state 
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label> Plant Type:</label>
-                    <select name="kind" value={this.state.kind} onChange={this.handleChange}>
-                        <option>gift</option>
-                        <option>gifted</option>
-                    </select>
-                    <label>Plant Name:</label>
-                    <input type="text" name="name"value={this.state.name} onChange={this.handleChange}></input>
-                    <label>Plant Price:</label>
-                    <input type="text" name="price"value={this.state.price} onChange={this.handleChange}></input>
-                    <label>Plant Description:</label>
-                    <textarea type="text" name="description" value={this.state.description} onChange={this.handleChange}></textarea>
-                    <input type="submit"/>
-                </form>
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group>
+                        <Form.Label>Plant Type</Form.Label>
+                        <Form.Control as="select" value={kind} onChange={this.handleChange('kind')}>
+                            <option>gift</option>
+                            <option>gifted</option>
+                        </Form.Control>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="text" placeholder="Name" value={name} onChange={this.handleChange('name')}/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Price</Form.Label>
+                        <Form.Control type="text" placeholder="Price" value={price} onChange={this.handleChange('price')}/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control as="textarea" rows="3" value={description} onChange={this.handleChange('description')} />
+                    </Form.Group>
+                
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form>
             </div>
         )
     }
