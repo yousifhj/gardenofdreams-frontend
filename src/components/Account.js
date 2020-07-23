@@ -6,6 +6,8 @@ import { Row, Col } from 'react-bootstrap'
 
 import PlantsContainer from '../containers/PlantsContainer'
 import { Link } from 'react-router-dom'
+import LikeButton from './LikeButton';
+
 class Account extends Component {
     constructor (props) {
         super(props)

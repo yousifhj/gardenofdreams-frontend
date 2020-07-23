@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {fetchAccounts} from '../actions/fetchAccounts'
 import { Row, Col, ListGroup } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
+import LikeButton from '../components/LikeButton';
 
 class Dashboard extends Component {
     componentDidMount() {
@@ -14,7 +15,7 @@ class Dashboard extends Component {
 
         return (
             <div>
-                <h2 class="display-3"  > Welcome to Garden of Dreams </h2>
+                <h2 class="display-3"> Welcome to Garden of Dreams </h2>
                 <p class="text-center"> We've got this gift of love, but love is like a precious plant. You can't just accept it and leave it in the cupboard or just think it's going to get on by itself. You've got to keep watering it. You've got to really look after it and nurture it</p>
                 <Row>
                     <Col>
@@ -27,7 +28,11 @@ class Dashboard extends Component {
                             {
                                 accounts.map(account => (
                                     <ListGroup.Item key={account.id}>
-                                        <Link to={`/accounts/${account.id}`}>{account.name}</Link>
+                                        <div style={{flex: 1, justifyContent: 'space-between'}}>
+                                            <Link to={`/accounts/${account.id}`} style={{flex: 1}}>{account.name}</Link>
+                                            <LikeButton />
+                                        </div>
+                                        
                                     </ListGroup.Item>
                                 ))
                             }
