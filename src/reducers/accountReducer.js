@@ -1,49 +1,38 @@
-
-const initState = {
-  accounts: []
+const initialState = {
+  accounts: [],
+  account: {}
 }
 
-export default (state = initState, action) => {
-  const { type, payload } = action
-  if (type === 'FETCH_ACCOUNTS') {
-
-    return {
-      ...state,
-      accounts: payload
-    }
-  }
-  if (type === 'ADD_ACCOUNT') {
-    return {
-      ...state,
-      accounts: [...state.accounts, payload]
-    }
-  }
-  if (type === 'ADD_PLANT') {
-    console.log('updated plant', payload)
-    return {
-      ...state,
-      accounts: [...state.accounts, payload]
-    }
-  }
-
-  return state
-}
-/*
-export default function accountReducer(state = {accounts: []}, action) {
-  
+export default function accountReducer(state = initialState, action) {
     switch (action.type) {
         case 'FETCH_ACCOUNTS':
-        
-          return {...state, accounts: action.payload}
-          case 'ADD_ACCOUNT':
-            
+          return {accounts: action.payload}
+        case 'ADD_ACCOUNT':
             return {...state, accounts: [...state.accounts, action.payload]}
-          case 'ADD_PLANT':
-              return {
-                ...state,
-                accounts: [...state.accoutn]
+        case 'ADD_PLANT':
+            let accounts = state.accounts.map(account => {
+              if (account.id === action.payload.id) {
+                return action.payload
+              } else {
+                return account
               }
+            })
+            return {...state, accounts: accounts}
+        case 'DELETE_PLANT':
+              let accountsPlants = state.accounts.map(account => {
+                if (account.id === action.payload.id) {
+                  return action.payload
+                } else {
+                  return account
+                }
+              })
+              return {...state, accounts: accountsPlants}
+        case 'FETCH_ACCOUNT':
+          return {
+            ...state,
+            account: action.payload
+          }
         default:
           return state
     }
-}*/
+}
