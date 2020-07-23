@@ -29,7 +29,7 @@ class Account extends Component {
             <Fragment>
                 <Row>
                     <Col>
-                        <Link to={'/'}>Back to Dashboard</Link>
+                        <Link to={'/'}>Back to Homepage</Link>
                     </Col>
                 </Row>
                 <Row>
