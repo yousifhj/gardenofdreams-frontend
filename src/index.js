@@ -4,19 +4,18 @@ import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import {BrowserRouter as Router} from 'react-router-dom'
-import accountReducer from './reducers/accountReducer'
-
+import { store } from './store'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App';
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-let store = createStore(accountReducer, composeEnhancers(applyMiddleware(thunk)))
-
+import { Container } from 'react-bootstrap'
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
-  </Provider>,
+  <Router>
+    <Provider store={store}>
+      <Container>
+        <App />
+      </Container>
+      
+    </Provider>
+  </Router>,
   document.getElementById('root'));
