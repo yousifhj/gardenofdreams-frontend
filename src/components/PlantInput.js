@@ -35,22 +35,22 @@ class PlantInput extends React.Component {
             <div>
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group>
-                        <Form.Label>Plant Type</Form.Label>
+                        <Form.Label>Plant Type:</Form.Label>
                         <Form.Control as="select" value={kind} onChange={this.handleChange('kind')}>
                             <option>gift</option>
                             <option>gifted</option>
                         </Form.Control>
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>Name</Form.Label>
+                        <Form.Label>Name:</Form.Label>
                         <Form.Control type="text" placeholder="Name" value={name} onChange={this.handleChange('name')}/>
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>Price</Form.Label>
+                        <Form.Label>Price:</Form.Label>
                         <Form.Control type="text" placeholder="Price" value={price} onChange={this.handleChange('price')}/>
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>Description</Form.Label>
+                        <Form.Label>Description:</Form.Label>
                         <Form.Control as="textarea" rows="3" value={description} onChange={this.handleChange('description')} />
                     </Form.Group>
                 
@@ -59,6 +59,7 @@ class PlantInput extends React.Component {
                     </Button>
                 </Form>
             </div>
+           
         )
     }
 

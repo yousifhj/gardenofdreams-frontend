@@ -35,7 +35,7 @@ class Account extends Component {
                     <Col>
                         <h3>
                             {/* {account? null : <Redirect to='/accounts'/>} */}
-                            {account ? account.name : null} - {account ? account.balance : null}
+                            {account ? account.name : null} - ${account ? account.balance : null}
                         </h3>
                     </Col>
                 </Row>

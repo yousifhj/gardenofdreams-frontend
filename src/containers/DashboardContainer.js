@@ -15,7 +15,7 @@ class Dashboard extends Component {
             <div>
                 <Row>
                     <Col>
-                        <Link to={`/accounts/new`}>Input account</Link>
+                        <Link to={`/accounts/new`}>Create a New Account</Link>
                     </Col>
                 </Row>
                 <Row>
