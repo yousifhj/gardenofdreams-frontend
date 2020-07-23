@@ -24,6 +24,7 @@ class Account extends Component {
     }
     render () {
         const { account } = this.props
+
         return (
             <Fragment>
                 <Row>
@@ -32,8 +33,8 @@ class Account extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
-                        <h3>
+                    <Col >
+                        <h3 class="display-4">
                             {/* {account? null : <Redirect to='/accounts'/>} */}
                             {account ? account.name : null} - ${account ? account.balance : null}
                         </h3>

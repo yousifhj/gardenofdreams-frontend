@@ -46,19 +46,19 @@ class AccountInput extends React.Component {
               </Col>
             </Row>
             <Row>
-              <Col>
+              <Col xs={5}>
                 <Form onSubmit={this.handleSubmit}>
                   <Form.Group>
                       <Form.Label>Garden of Dreams Name:</Form.Label>
-                      <Form.Control type="text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}/>
+                      <Form.Control  size="sm" type="text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}/>
                   </Form.Group>
                   <Form.Group>
                       <Form.Label>Balance</Form.Label>
-                      <Form.Control type="text" placeholder="Balance" value={this.state.balance} name="balance" onChange={this.handleChange}/>
+                      <Form.Control  size="sm" type="text" placeholder="Balance" value={this.state.balance} name="balance" onChange={this.handleChange}/>
                   </Form.Group>
                   
               
-                  <Button variant="primary" type="submit">
+                  <Button variant="success" type="submit" size="sm">
                       Submit
                   </Button>
               </Form>

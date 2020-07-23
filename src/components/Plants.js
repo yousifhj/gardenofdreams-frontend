@@ -13,7 +13,7 @@ const Plants = (props) => {
 
     return (
         <Row>
-            <Col>
+            <Col xs={7}>
                 <ListGroup>
                 {
                     props.plants && props.plants.map(plant =>
@@ -21,14 +21,13 @@ const Plants = (props) => {
                             key={plant.id}
                         >
                             <Row>
-                                <Col md={9}>
-
+                                <Col md={8}>
                                     <p>
                                         {plant.name}
                                     </p>
-                                   
                                 </Col>
-                                <Col md={3}>
+
+                                <Col>
                                     <Link className="btn btn-primary btn-sm" to={`/plants/${plant.id}`}>Edit</Link>
                                     <Button onClick={() => handleDelete(plant)} variant="danger" size="sm">Delete</Button>
                                 </Col>

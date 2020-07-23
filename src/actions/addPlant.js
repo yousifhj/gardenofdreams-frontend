@@ -10,6 +10,7 @@ export const addPlant = (plant, accountId) => {
       })
       .then(response => response.json())
       .then(account => {
+        console.log('dispatch',account)
            dispatch({type: 'ADD_PLANT', payload: account})
         })
         .catch(err => {
