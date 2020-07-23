@@ -1,4 +1,4 @@
-export const addAccount = (data) => {
+export const addAccount = (data, callback) => {
 
     return (dispatch) => {
       fetch('http://localhost:3000/api/v1/accounts', {
@@ -11,10 +11,10 @@ export const addAccount = (data) => {
     })
     .then(response => response.json())
     .then(account => {
-      console.log(account)
       dispatch({type: 'ADD_ACCOUNT', payload: account})
+      callback(null, account)
     }).catch(err => {
-      console.log(err)
+      callback(err, null)
     })
   }
   
