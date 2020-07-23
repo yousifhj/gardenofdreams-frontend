@@ -5,6 +5,7 @@ import Plants from '../components/Plants'
 class PlantsContainer extends React.Component {
 
     render() {
+
         return (
             <div>
                 <PlantInput account={this.props.account}/>
