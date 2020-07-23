@@ -1,10 +1,17 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import { Link } from 'react-router-dom'
 import {addAccount} from '../actions/addAccount'
+
+import { Form, Button, Row, Col, Toast } from 'react-bootstrap'
 
 class AccountInput extends React.Component {
 
-    state = { name: '', balance: ''}
+    state = { 
+      name: '',
+      balance: '',
+      showToast: false
+    }
 
     handleChange = (event) => {
         this.setState({
@@ -13,20 +20,50 @@ class AccountInput extends React.Component {
     }
     
     handleSubmit = (event) => {
-        event.preventDefault()
-        this.props.addAccount(this.state)
-        this.setState({ name: '', balance: '' }) }
+      event.preventDefault()
+      this.props.addAccount(this.state, (err, suc) => {
+        if (suc) {
+          this.setState({ 
+            name: '',
+            balance: '',
+            showToast: true
+          }) 
+        }
+      })
+        
+    }
 
     render() {
+        
         return (
           <div>
-            <form onSubmit={this.handleSubmit}>
-              <label>Garden of Dreams Name: </label>
-              <input type='text' placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange}/><br/>
-              <label>Garden of Dreams Balance: </label>
-              <input type='text' placeholder='Balance' value={this.state.balance} name="balance" onChange={this.handleChange}/><br/>
-              <input type="submit"/>
-            </form>
+            <Toast onClose={() => this.setState({ showToast: false })} show={this.state.showToast} delay={3000} autohide>
+              <Toast.Body>Account was created successfully!</Toast.Body>
+            </Toast>
+            <Row>
+              <Col>
+                <Link to={'/'}>Back to Dashboard</Link>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Form onSubmit={this.handleSubmit}>
+                  <Form.Group>
+                      <Form.Label>Garden of Dreams Name:</Form.Label>
+                      <Form.Control type="text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}/>
+                  </Form.Group>
+                  <Form.Group>
+                      <Form.Label>Balance</Form.Label>
+                      <Form.Control type="text" placeholder="Balance" value={this.state.balance} name="balance" onChange={this.handleChange}/>
+                  </Form.Group>
+                  
+              
+                  <Button variant="primary" type="submit">
+                      Submit
+                  </Button>
+              </Form>
+              </Col>
+            </Row>
           </div>
         )
       }
